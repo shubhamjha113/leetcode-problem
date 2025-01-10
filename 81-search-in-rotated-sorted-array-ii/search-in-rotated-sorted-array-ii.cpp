@@ -1,43 +1,32 @@
 class Solution {
 public:
-    bool search(vector<int>& arr, int k) {
-        int n = arr.size(); // size of the array.
-    int low = 0, high = n - 1;
-    while (low <= high) {
-        int mid = (low + high) / 2;
-
-        //if mid points the target
-        if (arr[mid] == k) return true;
-
-        //Edge case:
-        if (arr[low] == arr[mid] && arr[mid] == arr[high]) {
-            low = low + 1;
-            high = high - 1;
-            continue;
-        }
-
-        //if left part is sorted:
-        if (arr[low] <= arr[mid]) {
-            if (arr[low] <= k && k <= arr[mid]) {
-                //element exists:
-                high = mid - 1;
+    bool search(vector<int>& nums, int target) {
+        int n = nums.size();
+        int s=0,e=n-1;
+        while(s<=e){
+            int mid = (s+e)/2;
+            if(nums[mid] == target) return true;
+            if(nums[s] == nums[mid] && nums[mid]== nums[e]){
+                s++;e--;
+                continue;
             }
-            else {
-                //element does not exist:
-                low = mid + 1;
+            if(nums[s] <= nums[mid]){
+                if(nums[s] <= target && target<=nums[mid]){
+                    e=mid-1;
+                }
+                else{
+                    s=mid+1;
+                }
             }
-        }
-        else { //if right part is sorted:
-            if (arr[mid] <= k && k <= arr[high]) {
-                //element exists:
-                low = mid + 1;
-            }
-            else {
-                //element does not exist:
-                high = mid - 1;
+            else{
+                if(nums[mid]<=target && target<=nums[e]){
+                    s=mid+1;
+                }
+                else{
+                    e=mid-1;
+                }
             }
         }
+        return false;
     }
-    return false;
-}
 };
