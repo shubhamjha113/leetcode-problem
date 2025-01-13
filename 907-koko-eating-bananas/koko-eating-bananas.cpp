@@ -12,11 +12,8 @@ public:
     int minEatingSpeed(vector<int>& piles, int h) {
         int n=piles.size();
         int s=1;
-        int maxi = -1;
-        for(int i=0;i<n;i++){
-            maxi = max(maxi , piles[i]);
-        }
-        int e=maxi;
+         
+        int e = *max_element(piles.begin(),piles.end());
         int mid=s + (e-s)/2;
         int ans  = -1;
         while(s<=e){
