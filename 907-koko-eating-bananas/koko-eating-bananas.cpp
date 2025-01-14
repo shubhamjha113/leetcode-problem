@@ -2,9 +2,9 @@ class Solution {
 public:
     bool isPos(vector<int>& piles, int h,int n , int mid) {
         int sum = 0;  
-        for (int pile : piles) {
+        for (int i=0;i<n;i++) {
            
-            sum += (pile + mid - 1) / mid; 
+            sum += (piles[i] + mid - 1) / mid; 
             if (sum > h) return false;
         }
         return true;
