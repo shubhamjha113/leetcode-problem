@@ -4,28 +4,26 @@ public:
        int sum = 0;
        int count=1;
        for(int i=0;i<weights.size();i++){
-            if(weights[i] > mid) return false;
-            if(sum + weights[i] <= mid){
-                sum += weights[i];
-            }
-            else{
+            if(sum + weights[i] > mid){
                 count++;
                 sum =weights[i];
-                 
+                if(count> days) return false; 
             }
-             if(count> days) return false; 
-            
+            else{
+                sum += weights[i];     
+            }
        } 
        return true;
     }
 
     int shipWithinDays(vector<int>& weights, int days) {
-        int s=0,summ=0;
+        int summ=0,maxi = -1;
         for(int i=0;i<weights.size();i++){
             summ += weights[i];
+            maxi=max(maxi,weights[i]);
         }
 
-        int e=summ;
+        int s=maxi,e=summ;
          
         int ans=-1;
         while(s<=e){
