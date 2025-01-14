@@ -26,10 +26,10 @@ public:
         }
 
         int e=summ;
-         int mid=s+(e-s)/2;
+         
         int ans=-1;
         while(s<=e){
-           
+           int mid=s+(e-s)/2;
             if(isPos(weights,days,mid)){
                 ans= mid;
                 e=mid-1;
@@ -37,7 +37,6 @@ public:
             else{
                 s=mid+1;
             }
-             mid=s+(e-s)/2;
         }
       return ans;  
     }
