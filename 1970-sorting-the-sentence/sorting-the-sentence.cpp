@@ -12,25 +12,25 @@ public:
             ans[pos] = temp;
             temp.clear();
             count++;
-            index++;
+            
         }
         else{
             temp += s[index];
-            index++;
         }
+        index++;
        }
        int pos = temp[temp.size() - 1] - '0';
             temp.pop_back();
             ans[pos] = temp;
             temp.clear();
             count++;
-         
+         string result;
         for(int i=1;i<=count;i++){
-            temp += ans[i];
-            temp += ' ';
+            result += ans[i];
+            if(i<count) result += ' ';
         }
-        temp.pop_back();
-        return temp;
+       
+        return result;
 
     }
 };
