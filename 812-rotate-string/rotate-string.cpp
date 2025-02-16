@@ -26,12 +26,10 @@ public:
 
 
     int present(string temp, string goal) {
-        int n = temp.size();
-        int m = goal.size();
-        vector<int> lps(m,0);
+        vector<int> lps(goal.size(),0);
         lpsfind(lps,goal);
         int first = 0,second = 0;
-        while(first < n && second < m){
+        while(first < temp.size() && second < goal.size()){
             if(temp[first] == goal[second]){
                 first++;
                 second++;
@@ -45,7 +43,7 @@ public:
                 }
             }
         }
-        if(second == m){
+        if(second == goal.size()){
             return 1;
         }
         return 0;
