@@ -9,7 +9,10 @@ public:
                 index = i;
             }
         }
-        ans = num.substr(0,index+1);
+        //ans = num.substr(0,index+1);
+        for(int i=0;i<index+1;i++){
+            ans += num[i];
+        }
         
      return ans; 
     }
