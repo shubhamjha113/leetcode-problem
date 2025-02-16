@@ -6,10 +6,11 @@ public:
         vector<int> countT(26,0);
         for(int i=0;i<s.size();i++){
             countS[s[i]-'a']++;
-        }
-        for(int i=0;i<t.size();i++){
             countT[t[i]-'a']++;
         }
+        // for(int i=0;i<t.size();i++){
+        //     countT[t[i]-'a']++;
+        // }
         for(int i=0;i<26;i++){
             if(countS[i]!=countT[i]){
                 return false;
