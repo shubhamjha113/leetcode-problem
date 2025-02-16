@@ -25,14 +25,14 @@ public:
     }
 
 
-    int present(string haystack, string needle) {
-        int n = haystack.size();
-        int m = needle.size();
+    int present(string temp, string goal) {
+        int n = temp.size();
+        int m = goal.size();
         vector<int> lps(m,0);
-        lpsfind(lps,needle);
+        lpsfind(lps,goal);
         int first = 0,second = 0;
         while(first < n && second < m){
-            if(haystack[first] == needle[second]){
+            if(temp[first] == goal[second]){
                 first++;
                 second++;
             }
