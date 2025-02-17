@@ -3,8 +3,8 @@ public:
     string frequencySort(string s) {
         map<char,int> mpp;
         string ans="";
-        for(int i=0;i<s.size() ; i++){
-            mpp[s[i]]++;
+        for(char c:s){
+            mpp[c]++;
         }
        
         vector<pair<int , char>> freq;
