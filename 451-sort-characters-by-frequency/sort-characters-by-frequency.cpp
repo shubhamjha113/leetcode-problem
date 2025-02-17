@@ -1,21 +1,30 @@
 class Solution {
 public:
     string frequencySort(string s) {
-        map<char,int> mpp;
         string ans="";
-        for(char c:s){
-            mpp[c]++;
-        }
-       
-        vector<pair<int , char>> freq;
-        for(auto it : mpp){
-            freq.push_back({it.second,it.first});
-        }
+        vector<pair<char,int>> freq(128,{0,0});
+        
+    for (int i = 0; i < 128; i++) {
+        freq[i].first = char(i);
+    }
 
-        sort(freq.rbegin(),freq.rend());
-        for(auto k:freq){
-            ans += string(k.first , k.second);
+    
+    for (char ch : s) {
+        freq[ch].second++;
+    }
+        auto lamda = [&](pair<char,int> &p1,pair<char,int> &p2){
+            return p1.second>p2.second;
+        };
+
+
+        sort(begin(freq),end(freq),lamda);
+
+        for (auto &p : freq) {
+        if (p.second > 0) {
+            ans += string(p.second, p.first);
         }
+    }
+
         
         return ans;
     }
