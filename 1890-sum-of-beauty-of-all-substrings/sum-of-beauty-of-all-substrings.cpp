@@ -7,12 +7,12 @@ public:
             vector<int> count(26,0);
             for (int j = i; j < s.size(); j++) {
                 count[s[j]-'a']++; 
-                    int maxfreq = INT_MIN;
+                    int maxfreq = 0;
                     int minfreq = INT_MAX;
                     
                     for (int k=0;k<26;k++) {
                         if(count[k]>0){
-                             maxfreq = max(maxfreq, count[k]);
+                            maxfreq = max(maxfreq, count[k]);
                             minfreq = min(minfreq, count[k]);
                         }
                     }
