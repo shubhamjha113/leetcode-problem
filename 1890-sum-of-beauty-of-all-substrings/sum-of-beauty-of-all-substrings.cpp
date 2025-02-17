@@ -4,15 +4,18 @@ public:
         int res = 0;
         
         for (int i = 0; i < s.size(); i++) {
-            map<int,int> count;
+            vector<int> count(26,0);
             for (int j = i; j < s.size(); j++) {
-                count[s[j]-'a']++; 
-                    int maxfreq = 0;
+                count[s[j]-'a']++;
+                    
+                    int maxfreq = INT_MIN;
                     int minfreq = INT_MAX;
                     
-                    for (auto k :count) {
-                            maxfreq = max(maxfreq, k.second);
-                            minfreq = min(minfreq, k.second);
+                    for (int k=0;k<26;k++) {
+                        if(count[k]>0){
+                             maxfreq = max(maxfreq, count[k]);
+                            minfreq = min(minfreq, count[k]);
+                        }
                     }
                     
                     res += (maxfreq - minfreq);
