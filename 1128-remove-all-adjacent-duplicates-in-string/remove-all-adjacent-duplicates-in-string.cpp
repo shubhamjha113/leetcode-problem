@@ -22,7 +22,7 @@ public:
             ans +=st.top();
             st.pop();
         }
-        reverse(ans.begin(),ans.end());
+        reverse(begin(ans),end(ans));
         return ans;
     }
 };
