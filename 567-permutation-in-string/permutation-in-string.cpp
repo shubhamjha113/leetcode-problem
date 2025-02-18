@@ -5,12 +5,23 @@ public:
         int m = s2.size();
         if(n>m) return false;
 
-        sort(begin(s1),end(s1));
-        for(int i=0;i<=m-n;i++){
-            string sub = s2.substr(i,n);
-            sort(begin(sub),end(sub));
-            if(s1==sub) return true;
+        vector<int> freq1(26,0),freq2(26,0);
+        for(char &ch : s1){
+            freq1[ch-'a']++;
         }
+
+        int i=0,j=0;
+        while(j<m){
+            freq2[s2[j]-'a']++;
+
+            if(j-i+1 > n){
+                freq2[s2[i]-'a']--;
+                i++;
+            }
+            if(freq1 == freq2) return true;
+            j++;
+        }
+
         return false;
     }
 };
