@@ -17,10 +17,9 @@ public:
                 rowNo = i;
                 ans[0]=rowNo;
                 ans[1] =  oneCount;
+               
             }
         }
-        // ans[0]=rowNo;
-        // ans[1] =  oneCount;
         return ans;
     }
 };
