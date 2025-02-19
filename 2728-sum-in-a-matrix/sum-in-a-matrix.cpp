@@ -7,14 +7,18 @@ public:
         for(int i = 0; i < row; i++) {
             sort(nums[i].rbegin(), nums[i].rend());
         }
+
+        
+        
         int sum=0;
+        
 
         for(int j = 0; j < col; j++) {
-        int maxElement = 0;
+        int maxEle = 0;
         for(int i = 0; i < row; i++) {
-            maxElement = max(maxElement, nums[i][j]);
+            maxEle = max(maxEle, nums[i][j]);
         }
-        sum += maxElement;
+        sum += maxEle;
     }
 
 
