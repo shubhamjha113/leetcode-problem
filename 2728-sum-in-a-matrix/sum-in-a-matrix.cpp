@@ -4,9 +4,13 @@ public:
        int row =nums.size();
        int col = nums[0].size();
        
-        for(int i = 0; i < row; i++) {
-            sort(nums[i].rbegin(), nums[i].rend());
-        }
+        // for(int i = 0; i < row; i++) {
+        //     sort(nums[i].rbegin(), nums[i].rend());
+        // }
+
+        for (auto& r : nums) {
+        sort(r.rbegin(), r.rend());
+    }
 
         
         
