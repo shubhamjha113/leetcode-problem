@@ -2,7 +2,7 @@ class Solution {
 public:
 
     int maxi(vector<vector<int>>& mat,int row,int col,int mid){
-        int maxVal = INT_MIN,index = -1;
+        int maxVal = 0,index = -1;
         for(int i=0;i<row;i++){
             if(mat[i][mid] > maxVal){
                 maxVal = mat[i][mid];
