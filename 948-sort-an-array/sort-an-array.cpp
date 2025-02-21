@@ -1,33 +1,31 @@
 class Solution {
 public:
     vector<int> sortArray(vector<int>& nums) {
-        unordered_map<int,int> mpp;
-        for(int &num:nums){
-            mpp[num]++;
-        }
+        if (nums.empty()) return nums; 
         
-        int maxi = INT_MIN;
-        int mini = INT_MAX;
-        for(int i=0;i<nums.size();i++){
-            if(nums[i]>maxi){
-                maxi = nums[i];
-            }
+        
+        int maxi =nums[0];
+        int mini = nums[0];
+        for (int num : nums) {
+            if (num < mini) mini = num;
+            if (num > maxi) maxi = num;
         }
-        for(int i=0;i<nums.size();i++){
-            if(nums[i]<mini){
-                mini = nums[i];
-            }
-        }
+    
+    
+     vector<int> freq(maxi - mini + 1, 0);
+
+   
+    for (int num : nums) {
+        freq[num - mini]++;
+    }
 
 
-        int i=0;
-        for(int num = mini;num<=maxi;num++){
-            while(mpp[num]>0){
-                nums[i] = num;
-                i++;
-                mpp[num]--;
-            }
+        int index = 0;
+    for (int num = mini; num <= maxi; num++) {
+        while (freq[num - mini]-- > 0) {
+            nums[index++] = num;
         }
+    }
 
 
 
