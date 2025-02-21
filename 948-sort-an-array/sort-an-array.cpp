@@ -5,8 +5,20 @@ public:
         for(int &num:nums){
             mpp[num]++;
         }
-        int maxi = *max_element(nums.begin(),nums.end());
-        int mini = *min_element(nums.begin(),nums.end());
+        
+        int maxi = INT_MIN;
+        int mini = INT_MAX;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>maxi){
+                maxi = nums[i];
+            }
+        }
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]<mini){
+                mini = nums[i];
+            }
+        }
+
 
         int i=0;
         for(int num = mini;num<=maxi;num++){
