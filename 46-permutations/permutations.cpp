@@ -1,8 +1,8 @@
 class Solution {
-    //typedef vector<int> p;
+    typedef vector<int> p;
 private:
 
-void solve(vector<int> nums, vector<vector<int>> &ans,int index){
+void solve(p nums, vector<p> &ans,int index){
     //base case
     if(index>=nums.size()){
         ans.push_back(nums);
@@ -21,7 +21,7 @@ void solve(vector<int> nums, vector<vector<int>> &ans,int index){
 public:
 
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> ans;
+        vector<p> ans;
         int index =0;
         solve(nums,ans,index);
         return ans;
