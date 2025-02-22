@@ -1,8 +1,8 @@
 class Solution {
-    typedef vector<int> p;
+typedef vector<int> p;
 private:
 
-void solve(p nums, vector<p> &ans,int index){
+void solve(p &nums, vector<p> &ans,int index){
     //base case
     if(index>=nums.size()){
         ans.push_back(nums);
