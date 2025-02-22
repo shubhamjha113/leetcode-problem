@@ -1,7 +1,7 @@
 class Solution {
-
+typedef vector<int> p;
 public:
-void solve(vector<int>& nums,vector<int> output,int index , vector<vector<int>> &ans)
+void solve(p& nums,p output,int index , vector<p> &ans)
 {
     //base case
     if(index >=nums.size()){
@@ -20,8 +20,8 @@ void solve(vector<int>& nums,vector<int> output,int index , vector<vector<int>> 
 
 
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans;
-        vector<int> output;
+        vector<p> ans;
+        p output;
         int index=0;
         solve(nums,output,index,ans);
         return ans;
