@@ -3,7 +3,7 @@ private:
 void solve(int n , vector<string> &ans,string output,int L,int R)
 {
     //base case
-    if(L+R == 2*n){
+    if(L==n && R==n){
         ans.push_back(output);
         return;
     }
