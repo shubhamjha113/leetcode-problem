@@ -1,9 +1,10 @@
 class Solution {
+typedef vector<string> p;
 private:
-void solve(int n , vector<string> &ans,string output,int L,int R)
+void solve(int n , p &ans,string output,int L,int R)
 {
     //base case
-    if(L==n && R==n){
+    if(L+R==2*n){
         ans.push_back(output);
         return;
     }
@@ -23,7 +24,7 @@ void solve(int n , vector<string> &ans,string output,int L,int R)
 }
 public:
     vector<string> generateParenthesis(int n) {
-        vector<string> ans;
+        p ans;
         string output = "";
         solve(n,ans,output,0,0);
         return ans;
