@@ -5,7 +5,7 @@ public:
     bool hasSameDigits(string s) {
         
         while(s.size()>2){
-            string newS="";
+            string newS;
             for(int i=0;i<s.size()-1;i++){
                 int sum = (s[i]-'0')+(s[i+1]-'0');
                 newS += to_string(sum%10);
