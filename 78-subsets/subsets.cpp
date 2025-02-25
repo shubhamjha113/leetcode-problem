@@ -11,8 +11,8 @@ void solve(vector<int>& nums,vector<int> output,int index , vector<vector<int>> 
     //exclude
     solve(nums,output,index+1,ans);
     //include
-    int element = nums[index];
-    output.push_back(element);
+    //int element = nums[index];
+    output.push_back(nums[index]);
     solve(nums,output,index+1,ans);
 
 }
