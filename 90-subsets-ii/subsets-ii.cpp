@@ -3,10 +3,10 @@ private:
 
 void solve(vector<int>& nums,vector<vector<int>> &ans,vector<int> &temp,int index)
 {
-    if(index>=nums.size()){
-        ans.push_back(temp);
-        return;
-    }
+    // if(index>=nums.size()){
+    //     ans.push_back(temp);
+    //     return;
+    // }
     ans.push_back(temp);
      for(int i=index;i<nums.size();i++){
        if(i != index && nums[i] == nums[i-1]) continue;
