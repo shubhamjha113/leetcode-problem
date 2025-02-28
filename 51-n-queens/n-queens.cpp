@@ -9,6 +9,8 @@ bool cheak(int n,int i,vector<string> &board,int j){
         }
         row--,col--;
     }
+
+    //upper right
     row =i,col=j;
     while(row>-1 && col <n){
         if(board[row][col]=='Q'){
