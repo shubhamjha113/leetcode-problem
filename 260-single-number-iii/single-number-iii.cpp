@@ -1,17 +1,21 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
-        if(nums.size()==2) return  nums;
-        vector<int> ans;
-        int m = nums.size()/2 +2;
-        unordered_map<int,int> freq(m);
-        for(int i=0;i<nums.size();i++){
-            freq[nums[i]]++;
+        long long xorr=0;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            xorr ^= nums[i];
         }
-        for(auto it :freq){
-            if(it.second == 1){
-                ans.push_back(it.first);            }
+        int rightmost = xorr & (-xorr);
+        int b1=0,b2=0;
+        for(int i=0;i<n;i++){
+            if(nums[i] & rightmost){
+                b1 ^=nums[i];
+            }
+            else{
+                b2^=nums[i];
+            }
         }
-        return ans;
+        return {b1,b2};
     }
 };
