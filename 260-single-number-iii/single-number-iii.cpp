@@ -3,7 +3,8 @@ public:
     vector<int> singleNumber(vector<int>& nums) {
         if(nums.size()==2) return  nums;
         vector<int> ans;
-        unordered_map<int,int> freq;
+        int m = nums.size()/2 +2;
+        unordered_map<int,int> freq(m);
         for(int i=0;i<nums.size();i++){
             freq[nums[i]]++;
         }
