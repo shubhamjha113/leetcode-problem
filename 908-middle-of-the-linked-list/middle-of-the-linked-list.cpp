@@ -9,8 +9,8 @@ public:
             temp = temp->next;
         }
         temp = head;
-        int x = count/2;
-        while(x--){
+        count /=2;
+        while(count--){
             temp = temp->next;
         }
         return temp;
