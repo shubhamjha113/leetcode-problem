@@ -14,9 +14,19 @@ public:
         if(head==NULL || head->next==NULL){
             return head;
         }
-        ListNode* head1= reverseList(head->next);
-        head->next->next=head;
-        head->next=NULL;
-        return head1;
+        vector<int> ans;
+        ListNode* temp=head;
+        while(temp){
+            ans.push_back(temp->val);
+            temp = temp->next;
+        }
+        int i = ans.size()-1;
+        temp = head;
+        while(temp){
+            temp->val = ans[i];
+            i--;
+            temp = temp->next;
+        }
+        return head;
     }
 };
