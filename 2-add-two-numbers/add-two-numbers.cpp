@@ -10,29 +10,52 @@
  */
 class Solution {
 public:
+    // ListNode* Rev(ListNode* curr,ListNode* prev){
+    //     if(curr==NULL){
+    //         return prev;
+    //     }
+
+    //     ListNode* fut = curr->next;
+    //     curr->next = prev;
+    //     return Rev(fut,curr);
+    // }
+
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* dummyHead = new ListNode(0);
-        ListNode* tail = dummyHead;
-        int carry = 0;
+    //    l1=Rev(l1,NULL);
+    //    l2=Rev(l2,NULL);
 
-        while (l1 != nullptr || l2 != nullptr || carry != 0) {
-            int digit1 = (l1 != nullptr) ? l1->val : 0;
-            int digit2 = (l2 != nullptr) ? l2->val : 0;
-
-            int sum = digit1 + digit2 + carry;
-            int digit = sum % 10;
-            carry = sum / 10;
-
-            ListNode* newNode = new ListNode(digit);
-            tail->next = newNode;
+       ListNode* curr1=l1,*curr2=l2;
+       ListNode* head=new ListNode(0);
+       ListNode* tail=head;
+       int sum, carry =0;
+       while(curr1 && curr2){
+             sum=curr1->val + curr2->val +carry;
+            tail->next = new ListNode(sum%10);
+            carry = sum/10;
             tail = tail->next;
-
-            l1 = (l1 != nullptr) ? l1->next : nullptr;
-            l2 = (l2 != nullptr) ? l2->next : nullptr;
+            curr1 = curr1->next;
+            curr2=curr2->next;
+        }
+        while(curr1){
+            sum = curr1->val + carry;
+            tail->next = new ListNode(sum%10);
+            tail = tail->next;
+            curr1=curr1->next;
+            carry=sum/10;
+        }
+        while(curr2){
+             sum = curr2->val + carry;
+            tail->next = new ListNode(sum%10);
+            tail = tail->next;
+            curr2=curr2->next;
+            carry=sum/10;
         }
 
-        ListNode* result = dummyHead->next;
-        delete dummyHead;
-        return result;
+        while(carry>0){
+            tail->next = new ListNode(carry%10);
+            carry /=10;
+            tail = tail->next;
+        }
+        return head->next;
     }
 };
