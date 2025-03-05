@@ -11,7 +11,7 @@ public:
     bool hasCycle(ListNode *head) {
         ListNode*curr=head;
         unordered_map<ListNode*,bool> visited;
-        while(curr){
+        while(curr!=NULL){
             if(visited[curr]==1){
                 return 1;
             }
