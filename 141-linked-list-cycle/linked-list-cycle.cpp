@@ -8,24 +8,14 @@
  */
 class Solution {
 public:
-    bool cheak(vector<ListNode*> &visited,ListNode*curr){{
-        for(int i=0;i<visited.size();i++){
-            if(visited[i]==curr)
-                return 1;
-        }
-        return 0;
-    }
-
-    }
-    
     bool hasCycle(ListNode *head) {
         ListNode*curr=head;
-        vector<ListNode*> visited;
+        unordered_map<ListNode*,bool> visited;
         while(curr){
-            if(cheak(visited,curr)){
+            if(visited[curr]==1){
                 return 1;
             }
-            visited.push_back(curr);
+            visited[curr]=1;
             curr=curr->next;
         }
         return 0;
