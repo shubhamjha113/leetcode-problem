@@ -37,16 +37,21 @@ public:
       return head->next;
     }
     
+    void mergesort(vector<ListNode*>& lists,int start,int end){
+        if(start>=end){
+            return;
+        }
 
+        int mid = start + (end-start)/2;
+        mergesort(lists,start,mid);
+        mergesort(lists,mid+1,end);
+        lists[start] = merge(lists[start],lists[mid+1]);
+    }
 
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        int n = lists.size();
-       if(n==0) return NULL;
-       if(n==1) return lists[0];
-        ListNode* head = lists[0];
-        for(int i=1;i<n;i++){
-            head = merge(head,lists[i]);
-        }
-        return head;
+        if(lists.empty()) return NULL;
+        mergesort(lists,0,lists.size()-1);
+       
+        return lists[0];
     }
 };
