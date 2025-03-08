@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        if(!head->next) return head;
+        if(!head && !head->next) return head;
         ListNode* left =  NULL,*right = head,*temp = head;
         int count =0;
         while(temp){
