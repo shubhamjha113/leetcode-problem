@@ -16,15 +16,6 @@ public:
 
 class Solution {
 public:
-    Node* find(Node* curr1,Node* curr2,Node* x){
-        if(x==NULL) return NULL;
-
-        while(curr1 !=x){
-            curr1 = curr1->next;
-            curr2 = curr2->next;
-        }
-        return curr2;
-    }
 
     Node* copyRandomList(Node* head) {
         Node* headcopy = new Node(0);
@@ -40,8 +31,18 @@ public:
 
         tailcopy = headcopy;
         temp = head;
+        unordered_map<Node*,Node*> m;
         while(temp){
-            tailcopy->random = find(head,headcopy,temp->random);
+            m[temp] = tailcopy;
+            temp = temp->next;
+            tailcopy = tailcopy->next;
+        }
+        
+        tailcopy = headcopy;
+        temp = head;
+
+        while(temp){
+            tailcopy->random = m[temp->random];
             tailcopy = tailcopy->next;
             temp = temp->next;
         }
