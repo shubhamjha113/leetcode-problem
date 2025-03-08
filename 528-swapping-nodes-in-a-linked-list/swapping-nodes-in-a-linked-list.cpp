@@ -13,8 +13,8 @@ public:
     ListNode* swapNodes(ListNode* head, int k) {
         if(!head->next) return head;
         ListNode* left =  head,*right = head;
-        k--;
-        while(k--){
+        
+        while(--k){
             right = right->next;
         }
         ListNode* temp = right;
