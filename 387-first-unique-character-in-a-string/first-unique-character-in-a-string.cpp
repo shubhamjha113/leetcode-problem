@@ -6,8 +6,7 @@ public:
             count[s[i]-'a']++;
         }
         for(int i=0;i<s.size();i++){
-            int c = s[i]-'a';
-            if(count[c]==1){
+            if(count[s[i]-'a']==1){
                 return i;
             }
         }
