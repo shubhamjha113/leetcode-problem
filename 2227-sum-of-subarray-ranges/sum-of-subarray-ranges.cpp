@@ -8,7 +8,7 @@ public:
             for(int j = i+1;j<n;j++){
                 largest = max(largest,nums[j]);
                 smallest = min(smallest , nums[j]);
-                sum  += (long long)(largest - smallest);
+                sum  += (largest - smallest);
             }
         }
         return sum;
