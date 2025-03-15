@@ -1,21 +1,12 @@
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
-        int n = word.size();
-        bool found = false;
-        int i=0,j=0,index;
-        for(int i=0;i<n;i++){
-            index=i;
-            if(word[i]==ch){
-                found=true;
-                break;
-            }
+        if(word.find(ch)==-1) return word;
+        int i=0;
+        while(word[i] != ch){
+            i++;
         }
-        if(index==n-1&&!found) return word;
-        while(j<=index){
-            swap(word[index],word[j]);
-            index--,j++;
-        }
+        reverse(word.begin(),word.begin()+i+1);
         return word;
     }
 };
