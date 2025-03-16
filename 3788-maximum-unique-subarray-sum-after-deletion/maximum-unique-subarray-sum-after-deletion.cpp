@@ -9,12 +9,13 @@ public:
               s.insert(nums[i]);
         }
         if(s.empty()){
-            return *max_element(nums.begin(),nums.end());
-            //return maxi;
+            int maxi = *max_element(nums.begin(),nums.end());
+            return maxi;
         }
         else{
-            for(auto num:s)
-                sum+=num;
+            for(auto num:s){
+            sum+=num;
+            }
         }
         return sum;
     }
