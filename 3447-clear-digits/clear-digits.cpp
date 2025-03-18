@@ -4,7 +4,7 @@ public:
         string ans="";
         stack<char> st;
         for(int i=0;i<s.size();i++){
-            if(!st.empty() && (s[i]>='0'&& s[i]<='9')){
+            if(isdigit(s[i])){
                 st.pop();
             }
             else{
