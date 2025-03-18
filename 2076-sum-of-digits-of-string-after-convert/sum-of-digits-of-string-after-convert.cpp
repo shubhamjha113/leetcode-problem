@@ -15,6 +15,6 @@ public:
             }
            B = to_string(sum);
         }
-        return sum;
+        return stoi(B);
     }
 };
