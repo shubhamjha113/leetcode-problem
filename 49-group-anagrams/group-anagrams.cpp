@@ -2,7 +2,7 @@ class Solution {
 public:
     string generate(string &temp){
         vector<int> arr(26,0);
-        for(char ch :temp){
+        for(char &ch :temp){
             arr[ch-'a']++;
         }
         string new_word="";
@@ -24,7 +24,7 @@ public:
             string new_word = generate(temp);
             mp[new_word].push_back(temp);
         }
-        for(auto it:mp){
+        for(auto &it:mp){
             ans.push_back(it.second);
         }
         return ans;
