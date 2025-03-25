@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    TreeNode* BST(vector<int>& preorder,int &index,int upper,int lower){
+    TreeNode* BST(vector<int> &preorder,int &index,int upper,int lower){
         if(index == preorder.size() || preorder[index]<lower || preorder[index]>upper){
             return NULL;
         } 
