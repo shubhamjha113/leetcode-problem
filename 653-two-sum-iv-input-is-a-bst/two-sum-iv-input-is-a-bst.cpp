@@ -22,14 +22,27 @@ void inorder(TreeNode* root,vector<int> &ans){
     bool findTarget(TreeNode* root, int k) {
         vector<int> ans;
         inorder(root,ans);
-        unordered_map<int,int> mpp;
-        for(int i=0;i<ans.size();i++){
-            int sum = k-ans[i];
-            if(mpp.find(sum) != mpp.end()){
-                return true;
-            }
-            mpp[ans[i]]=i;
+
+        //-------using map -------------
+        // unordered_map<int,int> mpp;
+        // for(int i=0;i<ans.size();i++){
+        //     int sum = k-ans[i];
+        //     if(mpp.find(sum) != mpp.end()){
+        //         return true;
+        //     }
+        //     mpp[ans[i]]=i;
+        // }
+        // return false;
+
+        // optimize approach using two pointer
+        int left = 0,right = ans.size()-1;
+        while(left < right){
+            int sum = ans[left]+ans[right];
+            if(sum == k) return true;
+            else if(sum<k) left++;
+            else right--;
         }
+
         return false;
     }
 };
