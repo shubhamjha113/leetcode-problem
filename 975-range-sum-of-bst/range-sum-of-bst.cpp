@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-void inorder(TreeNode* &root, int low, int high,int &sum){
+void inorder(TreeNode* &root, int &low, int &high,int &sum){
     if(!root) return;
     inorder(root->left, low,high,sum);
     if(root->val >= low && root->val <= high){
