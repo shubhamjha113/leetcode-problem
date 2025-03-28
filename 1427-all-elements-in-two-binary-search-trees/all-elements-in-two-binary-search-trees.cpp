@@ -19,10 +19,10 @@ void inorder(TreeNode* root,vector<int> &ans){
 }
 
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        vector<int> ans1,ans2;
+        vector<int> ans1;
         inorder(root1,ans1);
-        inorder(root2,ans2);
-        ans1.insert(ans1.end(),ans2.begin(),ans2.end());
+        inorder(root2,ans1);
+        //ans1.insert(ans1.end(),ans2.begin(),ans2.end());
         sort(ans1.begin(),ans1.end());
         return ans1;
 
