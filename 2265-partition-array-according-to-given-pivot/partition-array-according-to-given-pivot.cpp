@@ -3,20 +3,20 @@ public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector<int> ans;
         int k=0;
-        for(int i =0;i<nums.size();i++){
-            if(nums[i]<pivot){
-                ans.push_back(nums[i]);
+        for(auto it:nums){
+            if(it<pivot){
+                ans.push_back(it);
             }
-            if(nums[i]==pivot){
+            if(it==pivot){
                 k++;
             }
         }
         while(k--){
             ans.push_back(pivot);
         }
-        for(int i =0;i<nums.size();i++){
-            if(nums[i]>pivot ){
-                ans.push_back(nums[i]);
+        for(auto it:nums){
+            if(it>pivot ){
+                ans.push_back(it);
             }
         }
         return ans;
