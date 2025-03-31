@@ -5,7 +5,7 @@ public:
         if(n%groupSize !=0) return false;
 
         map<int,int> mp;
-        for(auto &it:hand){
+        for(auto it:hand){
             mp[it]++;
         }
 
