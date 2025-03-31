@@ -9,9 +9,9 @@ public:
             mp[it]=rank++;
         }
 
-        vector<int> ans;
-        for(auto i : arr){
-            ans.push_back(mp[i]);
+        vector<int> ans(arr.size());
+        for(int i=0;i<arr.size();i++){
+            ans[i]=mp[arr[i]];
         }
         return ans;
     }
