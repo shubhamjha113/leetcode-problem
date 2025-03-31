@@ -5,7 +5,7 @@ public:
         set<int> s(arr.begin(),arr.end());
         int rank = 1;
         unordered_map<int,int> mp;
-        for(auto &it:s){
+        for(auto it:s){
             mp[it]=rank++;
         }
 
