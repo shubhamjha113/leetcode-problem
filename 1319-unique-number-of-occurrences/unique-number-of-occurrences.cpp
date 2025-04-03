@@ -24,7 +24,7 @@ public:
 
         sort(count.begin(),count.end());
         for(int i=1;i<2001;i++){
-            if(count[i] && count[i]==count[i-1]){
+            if(count[i]!=0 && count[i]==count[i-1]){
                 return false;
             }
         }
