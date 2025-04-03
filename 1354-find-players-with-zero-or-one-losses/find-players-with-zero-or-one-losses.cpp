@@ -7,9 +7,9 @@ public:
         }
         vector<int> lose0;
         vector<int> lose1;
-        for(int i=0;i<matches.size();i++){
-            int winner = matches[i][0];
-            int looser = matches[i][1];
+        for(auto &v:matches){
+            int winner = v[0];
+            int looser = v[1];
 
             if(mp.find(winner)==mp.end()){
                 lose0.push_back(winner);
