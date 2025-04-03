@@ -3,7 +3,8 @@ public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         unordered_map<int,int> mp;
         for(int i=0;i<matches.size();i++){
-            mp[matches[i][1]]++;
+            int lose=matches[i][1];
+            mp[lose]++;
         }
         vector<int> lose0;
         vector<int> lose1;
