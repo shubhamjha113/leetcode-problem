@@ -1,30 +1,26 @@
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
-        vector<string> words;
+        unordered_map<char,int> charToindex;
+        unordered_map<string,int> wordToindex;
         stringstream ss(s);
         string token;
-        int count=0;
-        while(getline(ss,token,' ')){
-            words.push_back(token);
-            count++;
-        }
-        int n = pattern.size();
-        if(count != n) return false;
-
-        unordered_map<string,char> mp;
-        unordered_set<char> used;
-        for(int i=0;i<n;i++){
-            string word=words[i];
-            char ch = pattern[i];
-            if(mp.find(word) == mp.end() && used.find(ch) == used.end()){
-               mp[word] = ch;
-               used.insert(ch);
-            }
-            else if(mp[word] != pattern[i]){
+        int countWords=0;
+        int i=0,n=pattern.size();
+        while(ss>>token){
+            countWords++;
+            if(i == n || charToindex[pattern[i]] != wordToindex[token]){
                 return false;
             }
+            charToindex[pattern[i]] = i+1;
+            wordToindex[token] = i+1;
+
+            i++;
         }
+
+        if(i!=n || countWords != n) return false;
+
         return true;
+
     }
 };
