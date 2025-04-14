@@ -1,13 +1,28 @@
 class Solution {
 public:
-    bool detectCapitalUse(string word) {
-        int n=word.size();
-        int count=0;
-        for(char &ch:word){
-            if(isupper(ch)) count++;
+    bool isLarge(string l){
+        for(char &ch:l){
+            if(ch<'A'||ch>'Z'){
+                return false;
+            }
         }
-        if(count==0 || count==n) return true;
-        if(count==1 && isupper(word[0])) return true;
+        return true;
+    }
+    bool isSmall(string s){
+        for(char &ch:s){
+            if(ch<'a'||ch>'z'){
+                return false;
+            }
+        }
+        return true;
+    }
+    bool detectCapitalUse(string word) {
+        int n = word.size();
+        string str=word.substr(1,n);
+
+        if(isSmall(word) || isLarge(word) || (isSmall(word.substr(1,n)) && isupper(word[0])) ){
+            return true;
+        }
         return false;
     }
 };
