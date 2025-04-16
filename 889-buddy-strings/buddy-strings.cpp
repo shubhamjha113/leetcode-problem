@@ -4,9 +4,7 @@ public:
         vector<int> count(26,0);
         for(char &ch:s){
             count[ch-'a']++;
-        }
-        for(int i=0;i<26;i++){
-            if(count[i]>1) return true;
+            if(count[ch-'a']>1) return true;
         }
 
         return false;
@@ -20,15 +18,14 @@ public:
        }
 
        vector<int> index;
-       int i=0,j=0;
-       while(i<s.size() && j<goal.size()){
-            if(s[i] != goal[j]){
+
+        for(int i=0;i<s.size();i++){
+            if(s[i] != goal[i]){
                 index.push_back(i);
             }
-            i++,j++;
-       }
-       if(index.size() != 2) return false;
-       swap(s[index[0]] , s[index[1]]);
+        }
+        if(index.size() != 2) return false;
+        swap(s[index[0]] , s[index[1]]);
         return s==goal;
     }
 };
