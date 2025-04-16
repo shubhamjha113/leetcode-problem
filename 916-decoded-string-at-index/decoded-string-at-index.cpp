@@ -28,3 +28,8 @@ public:
         return "";
     }
 };
+
+// pehle traverse krenge agar alphabet hua to size 1 se increase hoga  agr digit hua to
+// size jitna digit hoga utna time badh jayega  ab phir se last se traverse suru krenge
+// pehle k = k%size ho jayega ab agar k 0 aa jaye or s[i] alphabet ho to wahi return krenge
+// nhi to agar digit hua to size /digit-'0' hoga alphabet hua to size -1 se kam ho jayega 
