@@ -11,26 +11,26 @@
  */
 class Solution {
 public:
-    void fill(TreeNode* root,vector<int> temp,int targetSum,int sum,bool &ans){
+    void fill(TreeNode* root,int targetSum,int sum,bool &ans){
         if(!root) return;
         sum+=root->val;
-        temp.push_back(root->val);
+        
         if(!root->left && !root->right){
             if(sum==targetSum){
                 ans=true;
             }
             return;
         }
-        fill(root->left,temp,targetSum,sum,ans);
-        fill(root->right,temp,targetSum,sum,ans);
+        fill(root->left,targetSum,sum,ans);
+        fill(root->right,targetSum,sum,ans);
     }
 
 
     bool hasPathSum(TreeNode* root, int targetSum) {
-        vector<int> temp;
+       
         int sum=0;
         bool ans=false;
-        fill(root,temp,targetSum,sum,ans);
+        fill(root,targetSum,sum,ans);
         return ans;
     }
 };
