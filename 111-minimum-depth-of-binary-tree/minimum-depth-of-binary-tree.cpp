@@ -17,6 +17,7 @@ public:
         if(!root->left && !root->right){
             index++;
             mini = min(mini,index);
+            //backtrack
             index--;
             return;
         }
@@ -24,6 +25,7 @@ public:
         index++;
         solve(root->left, index, mini);
         solve(root->right, index, mini);
+        //backtrack
         index--;
     }
 
