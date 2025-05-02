@@ -12,15 +12,17 @@ class Solution {
 public:
     vector<int> arr;
     Solution(ListNode* head) {
-        while (head) {
-            arr.push_back(head->val);
-            head = head->next;
+        ListNode* temp = head;
+        while(temp){
+            arr.push_back(temp->val);
+            temp= temp->next;
         }
     }
-
+    
     int getRandom() {
-        int idx = rand() % arr.size();  
-        return arr[idx];
+        int n = arr.size();
+         int random_index = rand() % n;
+        return arr[random_index];
     }
 };
 
