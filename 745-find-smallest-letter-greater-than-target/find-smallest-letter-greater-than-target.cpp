@@ -1,11 +1,19 @@
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        int s =0,e=letters.size()-1;
-        while(s<=e){
-            int mid = s+(e-s)/2;
-            target<letters[mid]?e=mid-1:s=mid+1;
+        int low=0,high=letters.size()-1;
+        char ans=letters[0];
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(letters[mid]==target){
+                low=mid+1;
+            }else if(letters[mid]<target){
+                low=mid+1;
+            }else{
+                ans=letters[mid];
+                high=mid-1;
+            }
         }
-        return letters[s%letters.size()];
+        return ans;
     }
 };
