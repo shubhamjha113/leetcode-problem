@@ -13,6 +13,8 @@ public:
             }
         }
 
-        return dp[0][0];
+        return dp[0][-1+1];
     }
 };
+
+//shifting of prev_ind by +1 so that escape from  out of bound 
