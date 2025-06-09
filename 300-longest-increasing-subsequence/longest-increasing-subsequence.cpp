@@ -1,21 +1,21 @@
 class Solution {
 public:
-     int lengthOfLIS(vector<int>& nums) {
+//using binary search 
+    int lengthOfLIS(vector<int>& nums) {
         int n = nums.size();
-        vector<int>next(n+1,0),curr(n+1,0);
-        for(int ind = n-1;ind>=0;ind--){
-            for(int prev_ind = n-1;prev_ind>=-1;prev_ind--){
-                int len = 0+next[prev_ind+1];//not Take
-                if(prev_ind==-1 || nums[ind]>nums[prev_ind]){
-                    len = max(len,1+next[ind+1]);
-                }
-                curr[prev_ind+1] = len;
+        vector<int> temp;
+        temp.push_back(nums[0]);
+        int len = 1;
+        for(int i=1;i<n;i++){
+            if(nums[i]>temp.back()){
+                temp.push_back(nums[i]);
+                len++;
             }
-            next = curr;
+            else{
+                int ind = lower_bound(temp.begin(),temp.end(),nums[i])-temp.begin();
+                temp[ind] = nums[i];
+            }
         }
-
-        return curr[-1+1];
+        return len;
     }
 };
-
-//shifting of prev_ind by +1 so that escape from  out of bound 
