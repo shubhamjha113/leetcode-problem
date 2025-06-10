@@ -1,29 +1,22 @@
 class Solution {
-typedef vector<string> p;
-private:
-
-void solve(string output, int index, int n, p &ans) {
-        // Base Case: If the string length reaches n, store it
-        if (index == n) {
+public:
+    void solve(int ind,int n , vector<string> &ans,string output){
+        if(ind == n){
             ans.push_back(output);
             return;
         }
-
-        // Include '1' in any case
-        solve(output + '1', index + 1, n, ans);
-
-        // Include '0' only if the previous character was '1' or it's the first character
-        if (index == 0 || output.back() == '1') {
-            solve(output + '0', index + 1, n, ans);
+        //add 1 in any case
+        solve(ind+1,n,ans,output+'1');
+        //for adding zero 
+        if(output.empty() || output.back()=='1'){
+            solve(ind +1,n,ans,output+'0');
         }
     }
 
-
-public:
     vector<string> validStrings(int n) {
-        p ans;
-        string output = "";
-        solve(output, 0, n, ans);
+        vector<string> ans;
+        string output="";
+        solve(0,n,ans,output);
         return ans;
     }
 };
