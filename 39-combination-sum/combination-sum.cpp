@@ -1,7 +1,7 @@
 class Solution {
-typedef vector<int> p;
+
 private:
-void solve(p &candidates,int target,int index,int n,vector<p> &ans,p &temp)
+void solve(vector<int> &candidates,int target,int index,int n,vector<vector<int>> &ans,vector<int> &temp)
 {
     //base case
     if(index==n){
@@ -24,8 +24,8 @@ void solve(p &candidates,int target,int index,int n,vector<p> &ans,p &temp)
 
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<p> ans;
-        p temp;
+        vector<vector<int>> ans;
+        vector<int> temp;
         solve(candidates,target,0,candidates.size(),ans,temp);
         return ans;    
     }
