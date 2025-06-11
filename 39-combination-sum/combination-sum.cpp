@@ -12,12 +12,12 @@ void solve(vector<int> &candidates,int target,int index,int n,vector<vector<int>
     }
 
     //exclude
-    solve(candidates,target,index+1,candidates.size(),ans,temp);
+    solve(candidates,target,index+1,n,ans,temp);
 
     //include
     if(candidates[index]<=target){
         temp.push_back(candidates[index]);
-        solve(candidates,target-candidates[index],index,candidates.size(),ans,temp);
+        solve(candidates,target-candidates[index],index,n,ans,temp);
         temp.pop_back();
     }
 }
