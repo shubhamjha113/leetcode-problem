@@ -10,7 +10,7 @@ public:
         int deleted = 1+ f(i-1,j,s1,s2,dp);
         int replace = 1+ f(i-1,j-1,s1,s2,dp);
 
-        return dp[i][j] = min(insert , min(deleted,replace));
+        return dp[i][j] = min({insert ,deleted,replace});
 
     }
 
