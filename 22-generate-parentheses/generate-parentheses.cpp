@@ -1,32 +1,30 @@
 class Solution {
-typedef vector<string> p;
-private:
-void solve(int n , p &ans,string output,int L,int R)
-{
-    //base case
-    if(L+R==2*n){
-        ans.push_back(output);
-        return;
+public:
+    void solve(int n , vector<string> &ans,string &op,int L,int R){
+        if(L+R == 2*n) {
+            ans.push_back(op);
+            return;
+        }
+        //left
+        if(L < n){
+            op.push_back('(');
+            solve(n,ans,op,L+1,R);
+            op.pop_back();
+        }
+
+        if(L>R){
+            op.push_back(')');
+            solve(n,ans,op,L,R+1);
+            op.pop_back();
+        }
     }
 
-    //add left
-    if(L<n){
-        output.push_back('(');
-        solve(n,ans,output,L+1,R);
-        output.pop_back();
-    }
-    if(R<L){
-       output.push_back(')');
-        solve(n,ans,output,L,R+1);
-        output.pop_back();
-    } 
-    
-}
-public:
+
+
     vector<string> generateParenthesis(int n) {
-        p ans;
-        string output = "";
-        solve(n,ans,output,0,0);
+        vector<string> ans;
+        string op = "";
+        solve(n,ans,op,0,0);
         return ans;
     }
 };
