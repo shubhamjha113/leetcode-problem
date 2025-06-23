@@ -14,7 +14,7 @@ public:
         }
         while(l<=r){
             if(nums[l]+nums[r] <= target){
-                ans  = (ans + pow2[r-l])%m;
+                ans  = (ans + pow2[r-l] %m)%m;
                 l++;
             }
             else{
