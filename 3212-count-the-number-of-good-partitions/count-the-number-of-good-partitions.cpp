@@ -17,6 +17,6 @@ public:
             j = max(j,mp[nums[i]]);
             i++;
         }
-        return res;
+        return res%m;
     }
 };
