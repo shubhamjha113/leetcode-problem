@@ -12,6 +12,7 @@ public:
             while(i<j && nums[i]>rightMax[j]) i++;
 
             ramp  = max(ramp,j-i);
+            if(j==n-1) break;
             j++;
         }
         return ramp;
