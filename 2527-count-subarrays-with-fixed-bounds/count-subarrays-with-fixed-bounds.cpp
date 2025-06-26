@@ -8,8 +8,8 @@ public:
             if(nums[i]==maxK) maxInd = i;
             if(nums[i]>maxK || nums[i]<minK) culpritInd=i;
             int small = min(minInd,maxInd);
-            int temp = small-culpritInd;
-            ans +=  temp <= 0 ? (long long)0 : (long long)temp;
+            long long  temp = (long long)(small-culpritInd);
+            ans +=  temp <= 0 ? 0 : temp;
         }
         return ans ;
     }
