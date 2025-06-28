@@ -10,7 +10,7 @@ public:
             if(nums[r]==maxi){
                 countMax++;
             }
-            while(l<=r && countMax>=k){
+            while( countMax>=k){
                 count += nums.size() - r;
                 if(nums[l]==maxi){
                     countMax--;
