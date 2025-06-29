@@ -14,8 +14,9 @@ public:
             sum += nums[r];
             if(r-l+1 == k ){
                 maxSum = max(maxSum,sum);
-                st.erase(nums[l]);
+                //shrink window 
                 sum -= nums[l];
+                st.erase(nums[l]);
                 l++;
             } 
             r++;      
