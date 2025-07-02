@@ -1,58 +1,33 @@
 class Solution {
 public:
     bool isVowel(char ch){
-        if(ch=='a' ||  ch=='e' || ch=='i' ||ch=='o' || ch=='u') return true;
-        return false;
+        return ch=='a' ||  ch=='e' || ch=='i' ||ch=='o' || ch=='u';
+    }
+
+     int atMostK(string &s, int k) {
+        int res = 0, i=0, n = s.size();
+        unordered_map<char, int> mp;
+        
+        for(int j=0; j<n; j++) {
+            if (!isVowel(s[j])) {
+                i = j + 1;
+                //Clear map as new substring will begin
+                mp.clear();
+                continue;
+            }
+            mp[s[j]]++;
+            while(mp.size() > k){
+                mp[s[i]]--;
+                if(mp[s[i]] == 0) mp.erase(s[i]);
+                i++;
+            }
+            res += j - i + 1;
+        }
+        return res;
     }
 
     int countVowelSubstrings(string word) {
-         unordered_map<char,int> mp;
-        int consonent =0;
-        int n = word.size();
-        vector<int> nextConsonent(n);
-        int ind = n;
-        nextConsonent[n-1] = ind;
-        for(int i=n-1;i>=0;i--){
-            nextConsonent[i] = ind;
-            if(!isVowel(word[i])){
-                ind = i;
-            }
-        }
-
-        int i=0,j=0;
-        int ans = 0;
-        while(j<word.size()){
-            char ch = word[j];
-            if(isVowel(ch)){
-                mp[ch]++;
-            }
-            else{
-                consonent++;
-            }
-
-            while(consonent !=0){
-                char ch = word[i];
-                if(isVowel(ch)){
-                    mp[ch]--;
-                    if(mp[ch]==0) mp.erase(ch);
-                }
-                else consonent--;
-
-                i++;
-            }
-            ind =0;
-            while(mp.size()==5 && consonent==0){
-                ans += nextConsonent[j]-j;
-                char ch = word[i];
-                if(isVowel(ch)){
-                    mp[ch]--;
-                    if(mp[ch]==0) mp.erase(ch);
-                }
-                else consonent--;
-                i++;
-            }
-            j++;
-        }
-        return ans;
+        
+         return atMostK(word, 5) - atMostK(word, 4);
     }
 };
