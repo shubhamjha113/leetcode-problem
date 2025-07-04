@@ -1,17 +1,17 @@
 class Solution {
 public:
-    vector<string> getToken(string v){
+    deque<string> getToken(string v){
         stringstream ss(v);
         string token="";
-        vector<string> tokens;
+        deque<string> tokens;
         while(getline(ss,token,'.')){
             tokens.push_back(token);
         }
         return tokens;
     }
     int compareVersion(string version1, string version2) {
-        vector<string> v1= getToken(version1);
-        vector<string> v2= getToken(version2);
+        deque<string> v1= getToken(version1);
+        deque<string> v2= getToken(version2);
         int m = v1.size(), n = v2.size();
         int i=0;
         while(i<m || i< n){
