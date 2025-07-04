@@ -1,6 +1,6 @@
 class Solution {
 public:
-    deque<string> getToken(string v){
+    deque<string> getToken(string &v){
         stringstream ss(v);
         string token="";
         deque<string> tokens;
