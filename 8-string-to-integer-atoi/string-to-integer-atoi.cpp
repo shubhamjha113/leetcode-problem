@@ -1,25 +1,28 @@
 class Solution {
+    int getNum(const string& s, int i, long result, int sign) {
+        if (i >= s.size() || !isdigit(s[i]))
+            return sign * result;
+
+        result = result * 10 + (s[i] - '0');
+        if (sign * result >= INT_MAX) return INT_MAX;
+        if (sign * result <= INT_MIN) return INT_MIN;
+
+        return getNum(s, i + 1, result, sign);
+    }
+
 public:
     int myAtoi(string s) {
-       int i=0,res =0,sign =1,n=s.size();
-       while(i<n && s[i] == ' '){
-        i++;
-       }
-       if(i<n && (s[i]=='-' || s[i]=='+')){
-        sign = (s[i]=='+') ? 1 : -1;
-        i++;
-       } 
+        int i = 0, sign = 1;
+        long result = 0;
+        while (i < s.size() && s[i] == ' ') i++;
 
-       while(i<n && isdigit(s[i])){
-        int digit = s[i]-'0';
-
-        //cheak for overflow
-        if(res > (INT_MAX - digit)/10){
-            return (sign==1)? INT_MAX : INT_MIN;
+        if (s[i] == '+' || s[i] == '-') {
+            sign = (s[i] == '-') ? -1 : 1;
+            i++;
         }
-        res = res*10 + digit;
-        i++;
-       }
-       return res*sign;
+
+        while (i < s.size() && s[i] == '0') i++;
+
+        return getNum(s, i, 0, sign);
     }
 };
