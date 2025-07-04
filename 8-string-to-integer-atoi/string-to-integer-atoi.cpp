@@ -13,7 +13,6 @@ class Solution {
 public:
     int myAtoi(string s) {
         int i = 0, sign = 1;
-        long result = 0;
         while (i < s.size() && s[i] == ' ') i++;
 
         if (s[i] == '+' || s[i] == '-') {
