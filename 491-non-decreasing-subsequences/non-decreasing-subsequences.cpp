@@ -1,7 +1,7 @@
 class Solution {
 public:
     int n ;
-    void f(vector<int> &nums,int idx,vector<vector<int>> &ans ,vector<int> temp ){
+    void f(vector<int> &nums,int idx,vector<vector<int>> &ans ,vector<int> &temp ){
         if(temp.size()>=2){
              ans.push_back(temp);
         }
