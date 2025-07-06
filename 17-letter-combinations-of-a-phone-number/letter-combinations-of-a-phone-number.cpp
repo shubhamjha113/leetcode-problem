@@ -14,11 +14,9 @@ void solve(string digits,string output,int index,vector<string>&ans,string mappi
     for(int i=0;i<value.size();i++){
         output.push_back(value[i]);
          solve(digits,output,index+1,ans,mapping);
-         output.pop_back();
+         output.pop_back();  //backtracing
     }
 }
-
-
 
 public:
 
