@@ -7,7 +7,7 @@ public:
             if(mp.find(remaining) != mp.end()){
                 return {mp[remaining],i};
             }
-            mp[target-remaining] = i ;
+            mp[nums[i]] = i ;
         }
         return {-1,-1};
     }
