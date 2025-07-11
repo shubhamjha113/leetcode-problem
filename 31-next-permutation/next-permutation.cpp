@@ -11,7 +11,7 @@ public:
         }
         
         if(gola!=-1){
-            int swaps = gola;
+            int swaps = -1;
             for(int j=n-1;j>gola;j--){
                 if(nums[j] > nums[gola]){
                     swaps = j;
