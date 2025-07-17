@@ -11,7 +11,7 @@ public:
              int count = it.second;
             if(count <2 ) return -1;
            
-            ans += ceil((double)count/3);
+            ans += (count+2) /3;
             
         }
         return ans;
