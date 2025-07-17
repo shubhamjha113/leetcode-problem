@@ -11,8 +11,12 @@ public:
              int count = it.second;
             if(count <2 ) return -1;
            
-            ans += (count+2) /3;
-            
+            if(count%3 ==0){
+                ans += count/3;
+            }
+            else{
+                ans += count/3 +1;
+            }
         }
         return ans;
     }
