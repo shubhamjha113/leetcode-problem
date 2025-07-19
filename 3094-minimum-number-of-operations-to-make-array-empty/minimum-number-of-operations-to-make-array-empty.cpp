@@ -11,17 +11,7 @@ public:
             if(count ==1){
                 return -1;
             }
-            else if(count %3==0){
-                ans += count/3;
-            }
-            else if(count%3==1){
-                count -=4;
-                ans += 2+ count/3;
-            }
-            else{
-                count -=2;
-                ans += 1+ count/3;
-            }
+            ans += ceil((double)count/3);
         }
         return ans;
     }
