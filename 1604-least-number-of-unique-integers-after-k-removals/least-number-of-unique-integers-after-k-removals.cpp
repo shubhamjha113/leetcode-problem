@@ -10,17 +10,11 @@ public:
             int freq = it.second;
             count.push_back(freq);
         }
-        sort(rbegin(count),rend(count));
-        int n = count.size();
-        while(k){
-            if(k< count.back()){
-                return n;
-            } 
-            k -= count.back();
-            count.pop_back();
-            n = count.size(); 
-            
+        sort(begin(count),end(count));
+        for(int i=0;i<count.size();i++){
+            k -= count[i];
+            if(k<0) return count.size()-i;
         }
-        return n;
+        return 0;
     }
 };
