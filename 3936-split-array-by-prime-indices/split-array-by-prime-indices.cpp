@@ -9,14 +9,21 @@ public:
     }
     long long splitArray(vector<int>& nums) {
         long long sumA=0,sumB=0;
+        vector<long long> vecA,vecB;
         int n = nums.size();
         for(int i=0;i<n;i++){
             if(isPrime(i)){
-                sumA += nums[i];
+               vecA.push_back(nums[i]);
             }
             else{
-               sumB += nums[i]; 
+               vecB.push_back(nums[i]);
             }
+        }
+        for(long long &i:vecA){
+            sumA += i;
+        }
+        for(long long &i:vecB){
+            sumB += i;
         }
         return abs(sumA-sumB);
     }
