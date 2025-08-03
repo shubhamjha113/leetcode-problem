@@ -9,7 +9,7 @@ public:
         }
         int maxi = 0;
         for(int d = 0;d<=k/2;d++){
-            //case 1 
+            //case 1  move to left side 
             int remain = k-2*d;
             int i = startPos - d;
             int j = startPos + remain;
@@ -19,7 +19,7 @@ public:
                 int total = pSum[right] - (left >0 ? pSum[left-1] : 0);
                 maxi = max(maxi , total);
             }
-            //case 2 
+            //case 2 move to right side 
         
              j = startPos + d;
              i = startPos - remain;
