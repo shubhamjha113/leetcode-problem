@@ -11,6 +11,6 @@ public:
             st.insert(s);
         }
         
-        return st.find(t) != st.end();
+        return st.count(t);
     }
 };
