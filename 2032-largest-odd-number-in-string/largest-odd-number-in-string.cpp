@@ -11,9 +11,9 @@ public:
                 break;
             }
         }
-         ans = num.substr(0,index+1);          // extract from num   //complexity O(N)
+                  // extract from num   //complexity O(N)
         
         
-     return ans; 
+     return num.substr(0,index+1);
     }
 };
