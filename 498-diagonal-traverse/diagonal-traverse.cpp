@@ -11,11 +11,10 @@ public:
         }
       
         for(auto &it: mp){
-            vector<int> temp(it.second);
                 if(it.first %2 ==0){
-                    reverse(temp.begin(),temp.end());
+                    reverse(it.second.begin(),it.second.end());
                 }
-                ans.insert(ans.end(), temp.begin(),temp.end());
+                ans.insert(ans.end(), it.second.begin(),it.second.end());
                    
         }
         return ans;
