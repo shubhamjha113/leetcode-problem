@@ -33,9 +33,9 @@ public:
         else{
             tail->next = list2;
         }
-        tail = head;
-        head = head->next;
-        delete tail; 
-        return head;
+        // tail = head;
+        // head = head->next;
+        // delete tail; 
+        return head->next;
     }
 };
