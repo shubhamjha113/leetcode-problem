@@ -1,35 +1,28 @@
 class Solution {
 public:
     vector<vector<int>> sortMatrix(vector<vector<int>>& grid) {
-        unordered_map<int, priority_queue<int>> Dmp;
-        unordered_map<int, priority_queue<int,vector<int>, greater<int>>> Imp;
+        unordered_map<int, vector<int>> mp;  
 
         int m = grid.size(),n = grid[0].size();
         for(int i=0;i<m;i++){
             for(int j = 0;j<n;j++){
-                if(i-j<0){
-                    Imp[i-j].push(grid[i][j]);
-                }
-                else{
-                    Dmp[i-j].push(grid[i][j]);
-                }              
+                mp[i-j].push_back(grid[i][j]);
             }
         }
-        vector<vector<int>> ans;
+        for(auto &it:mp){
+            if(it.first <0){
+                sort(rbegin(it.second),rend(it.second));
+            }
+            else{
+                sort(begin(it.second),end(it.second));
+            }
+        }
         for(int i=0;i<m;i++){
-            vector<int> temp;
-            for(int j=0;j<n;j++){
-                if(i-j<0){
-                    temp.push_back(Imp[i-j].top());
-                    Imp[i-j].pop();
-                }
-                else{
-                    temp.push_back(Dmp[i-j].top());
-                    Dmp[i-j].pop();
-                }
+            for(int j = 0;j<n;j++){
+                grid[i][j] = mp[i-j].back();
+                mp[i-j].pop_back();
             }
-            ans.push_back(temp);
-        }
-        return ans;
+        }  
+        return grid;
     }
 };
