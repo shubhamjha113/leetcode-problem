@@ -18,19 +18,18 @@ public:
             temp = temp->next;
         }
         count -=n;
+        //edge case 
         if(count==0){
-            temp = head;
-            head = temp->next;
-            delete temp;
-            return head;
+            return head->next;
         }
+
+        
         ListNode* curr=head,*prev= NULL;
         while(count--){
             prev = curr;
             curr = curr->next;
         }
             prev->next = curr->next;
-            delete curr; 
         return head;    
     }
 };
