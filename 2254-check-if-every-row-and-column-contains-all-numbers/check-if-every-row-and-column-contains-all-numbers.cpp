@@ -4,12 +4,12 @@ public:
         int n = matrix.size();
        
         for(int i=0;i<n;i++){
-            set<int> row,col;
+            vector<bool> row(n+1,false),col(n+1,false);
             for(int j=0;j<n;j++){
-                row.insert(matrix[i][j]);
-                col.insert(matrix[j][i]);
-            }
-            if(row.size() != n || col.size() != n) return false;
+                int r = matrix[i][j], c = matrix[j][i];
+                if(r>n || c>n || row[r] || col[c]) return false;
+                row[r] = col[c] = true;
+            }  
         }
         return true;
     }
