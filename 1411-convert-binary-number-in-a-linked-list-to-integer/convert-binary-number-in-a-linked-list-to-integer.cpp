@@ -19,15 +19,11 @@ public:
         }
         temp = head;
         while(temp){
-            if(temp->val == 1){
-                count--;
+            count--;
+            if(temp->val == 1){    
                 ans += 1<<count;
-                temp  = temp->next;
             }
-            else{
-                temp = temp->next;
-                count--;
-            }
+            temp = temp->next;
         }
         return ans;
     }
