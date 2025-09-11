@@ -1,41 +1,22 @@
 class Solution {
 public:
     string sortVowels(string s) {
-        vector<int> lower(26,0);
-        vector<int> upper(26,0);
-        for(int i=0;i<s.size();i++){
-            if(s[i]=='a' || s[i] == 'e' || s[i]=='i' || s[i]=='o' || s[i] == 'u' ){
-                lower[s[i] - 'a']++;
-                s[i] = '#';
-            }
-            else if(s[i]=='A' || s[i] == 'E' || s[i]=='I' || s[i]=='O' || s[i] == 'U'){
-                upper[s[i] - 'A']++;
+        vector<char> vowel;
+        int n = s.size();
+        string v = "aeiouAEIOU";
+        for(int i = 0;i<n;i++){
+            if(v.find(s[i]) != string::npos){
+                vowel.push_back(s[i]);
                 s[i] = '#';
             }
         }
-        string ans;
-        for(int i=0;i<26;i++){
-            char c = 'A'+i;
-            while(upper[i]){
-                ans+=c;
-                upper[i]--;
+        sort(vowel.begin(),vowel.end());
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(s[i]=='#'){
+                s[i] = vowel[j];
+                j++;
             }
-        }
-        for(int i=0;i<26;i++){
-            char c = 'a'+i;
-            while(lower[i]){
-                ans+=c;
-                lower[i]--;
-            }
-        }
-
-        int first=0,second=0;
-        while(second<ans.size()){
-            if(s[first] == '#'){
-                s[first] = ans[second];
-                second++;
-            }
-            first++;
         }
         return s;
     }
