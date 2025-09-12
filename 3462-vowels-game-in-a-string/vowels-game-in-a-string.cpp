@@ -9,7 +9,7 @@ public:
             }
         }
         if(count==0) return false;
-        if(count & 1) return true;
+        //if(count & 1) return true;
         return true;
     }
 };
