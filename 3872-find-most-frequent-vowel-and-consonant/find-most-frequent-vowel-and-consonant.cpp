@@ -1,12 +1,9 @@
 class Solution {
 public:
-    bool isVowel(char c){
-        return string("aeiou").find(c) != string::npos; 
-    }
     int maxFreqSum(string s) {
         vector<int> vowel(26,0),consonent(26,0);
         for(int i=0;i<s.size();i++){
-            if(isVowel(s[i])){
+            if(string("aeiou").find(s[i]) != string::npos){
                 vowel[s[i]-'a']++;
             }
             else{
