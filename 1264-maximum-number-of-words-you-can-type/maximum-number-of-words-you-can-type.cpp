@@ -1,30 +1,18 @@
 class Solution {
 public:
-    bool f(string temp,string target){
-        vector<bool> store(26,0);
-        for(char ch: target){
-            store[ch-'a'] = 1;
-        }
-        for(char c:temp){
-            if(store[c-'a'] ){
-                return false;
-            }
-        }
-        return true;
-    }
     int canBeTypedWords(string text, string brokenLetters) {
+        vector<bool> store(26,0);
         int count = 0;
-        int n = text.size(),i =0;
-        while(i<n){
-            string temp;
-            while(i < n &&  text[i] != ' '){
-                temp += text[i];
-                i++;
+        for(char ch: brokenLetters) store[ch-'a'] = 1;
+        bool broken = true;
+        for(int i=0;i<=text.size();i++){
+            if(i<text.size() && text[i] != ' '){
+                if(store[text[i]-'a']) broken = false;
             }
-            if(f(temp,brokenLetters)){
-                count++;
+            else{
+                if(broken) count++;
+                broken = true;
             }
-            i++;
         }
         return count;
     }
