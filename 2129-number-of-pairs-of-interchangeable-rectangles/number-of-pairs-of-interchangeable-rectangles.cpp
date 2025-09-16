@@ -1,7 +1,10 @@
 class Solution {
 public:
+//    int gcd(int a,int b){
+//     return b==0?a : (b,a%b);
+//    }
     pair<int,int> reduced(int num,int den){
-        int x = __gcd(num,den);
+        int x = gcd(num,den);
         num/= x;
         den /= x;
         return {num,den};
